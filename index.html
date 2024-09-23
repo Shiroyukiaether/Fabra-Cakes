@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabra Cakes</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- AlpineJS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- App -->
+    <script src="src/app.js"></script>
+</head>
+
+<body>
+
+     <!-- Navbar start -->
+     <nav class="navbar">
+        <a href="#" class="navbar-logo">Fabra<span>cakes</span></a>
+
+        <div class="navbar-nav">
+            <a href="#home">Home</a>
+            <a href="#about">Tentang Kami</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Kontak</a>
+        </div>
+
+        <div class="navbar-extra">
+            <a href="#" id="search-button"><i data-feather="search"></i></a>
+            <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
+            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        </div>
+
+        <!-- Search Form start -->
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="Search here...">
+            <label for="search-box"><i data-feather="search"></i></label>
+        </div>
+        <!-- Search Form end -->
+
+        <!-- Shopping Cart start -->
+        <div class="shopping-cart">
+            <div class="cart-item">
+              <img src="img/products/manki-kim-mv7kxYh5Rko-unsplash (1) pt 9.jpg" alt="Product 1">
+              <div class="item-detail">
+                <h3>Coffe Beans Blend 2</h3>
+                <div class="item-price">IDR 70K</div>
+              </div>
+              <i data-feather="trash-2" class="remove-item"></i>
+            </div>
+            <div class="cart-item">
+              <img src="img/products/manki-kim-mv7kxYh5Rko-unsplash (1) pt 9.jpg" alt="Product 1">
+              <div class="item-detail">
+                <h3>Coffe Beans Blend 1</h3>
+                <div class="item-price">IDR 40K</div>
+              </div>
+              <i data-feather="trash-2" class="remove-item"></i>
+            </div>
+            <div class="cart-item">
+              <img src="img/products/manki-kim-mv7kxYh5Rko-unsplash (1) pt 9.jpg" alt="Product 1">
+              <div class="item-detail">
+                <h3>Coffe Beans Blend 3</h3>
+                <div class="item-price">IDR 50K</div>
+              </div>
+              <i data-feather="trash-2" class="remove-item"></i>
+            </div>
+        </div>
+        <!-- Shopping Cart end -->
+
+     </nav>
+     <!-- Navbar end -->
+
+     <!-- Hero Section start -->
+     <section class="hero" id="home">
+        <main class="content">
+          <h1>Nikmati Tiap <span>Potong Kebahagiaan</span></h1>
+          <p><span>Kue yang lembut,</span> terbuat dari bahan premium dengan harga yang terjangkau.</p>
+        </main>
+     </section>
+     <!-- Hero Section end -->
+
+     <!-- About Section start -->
+     <section id="about" class="about">
+        <h2><span>Tentang</span> Kami</h2>
+
+        <div class="row">
+          <div class="about-img">
+          <img src="img/WhatsApp Image 2024-09-23 at 10.11.29 (1).jpeg" alt="Tentang Kami">
+        </div>
+        <div class="content">
+          <h3>Kenapa memilih Kopi kami ?</h3>
+          <p>Karena Kopi kami dipilih dengan teliti dari biji terbaik, disajikan dengan cita rasa istimewa yang memikat lidah.</p>
+          <p>Demi memberikan pengalaman kopi penuh kenikmatan, dan mendukung petani lokal. Nikmati pengalaman kopi istimewa bersama kami.</p>  
+        </div>
+       </div>
+     </section>
+     <!-- About Section end -->
+
+     <!-- Menu Section start -->
+     <section class="menu" id="menu" x-data="menu">
+        <h2><span>Menu Spesial</span> Kami</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aperiam praesentium neque, unde voluptatibus voluptas.</p>
+    
+        <div class="row">
+          <template x-for="(item, index) in items" x-key="index"> 
+            <div class="menu-card">
+                <div class="menu-icons">
+                    <a href="#">
+                      <svg
+                      width="24"
+                      height="24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <use href="img/feather-sprite.svg#shopping-cart" />
+                    </svg>
+                    </a>
+                    <a href="#" class="item-detail-button">
+                      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <use href="img/products/feather-sprite.svg#eye" />
+                      </svg>
+                    </a>
+                </div>
+                <div class="menu-image">
+                  <img :src="`img/products/${item.img}`" :alt="item.name">
+                </div>
+              <div class="menu-content">
+                  <h3 x-text="item.name"></h3>
+                  <div class="menu-stars">
+                      <i data-feather="star" class="star-full"></i>
+                      <i data-feather="star" class="star-full"></i>
+                      <i data-feather="star" class="star-full"></i>
+                      <i data-feather="star" class="star-full"></i>
+                      <i data-feather="star" class="star-full"></i>
+                  </div>
+          <div class="-price"><span x-text="item.price"></span></div>
+              </div>
+          </template>
+        </div>
+    </section>
+     <!-- Menu Section end -->
+     
+     <!-- Contact Section start -->
+     <section id="contact" class="contact">
+        <h2><span>Kontak</span> Kami</h2>
+        <p>Anda dapat datang langsung ke kedai kopi kami atau memesan langsung lewat website ini.</p>
+     
+     <div class="row">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d418.67588618957967!2d114.58262724074945!3d-3.31586015374234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de423c891176a3b%3A0xb790db4c62fdc624!2sMAN%203%20Banjarmasin!5e0!3m2!1sid!2sid!4v1726986960149!5m2!1sid!2sid" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+     
+        <form action="Silahkan Isi">
+          <div class="input-group">
+            <i data-feather="user"></i>
+            <input type="text" placeholder="Nama">
+          </div>  
+          <div class="input-group">
+            <i data-feather="mail"></i>
+            <input type="text" placeholder="Email">
+          </div>  
+          <div class="input-group">
+            <i data-feather="phone"></i>
+            <input type="text" placeholder="Nomor HP">
+          </div>
+          <button type="submit" class="button">Kirim Pesan</button>  
+        </form>
+    </div>
+    </section>
+    <!-- Contact Section end -->
+   
+    <!-- Footer start -->
+    <footer>
+      <div class="socials">
+        <a href="#"><i data-feather="instagram"></i></a>
+        <a href="#"><i data-feather="twitter"></i></a>
+        <a href="#"><i data-feather="facebook"></i></a>
+      </div> 
+      
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#contact">Kontak</a>
+      </div>
+
+      <div class="credit">
+        <p>Created by <a href="https://www.instagram.com/ahmdfthii__?igsh=ODA1NTc5OTg5Nw==">ahmadfathi</a>. | &copy; 2023.</p>
+      </div>
+    </footer>
+    <!-- Footer end -->
+
+    <!-- Modal Box Item Detail start -->
+    <div class="modal" id="item-detail-modal">
+        <div class="modal-container">
+            <a href="#" class="close-icon" ><i data-feather="x"></i></a>
+            <div class="modal-content">
+                <img src="img/products/manki-kim-mv7kxYh5Rko-unsplash (1) pt 9.jpg" alt="Coffe Beans Blend 1">
+                <div class="product-content">
+                    <h3>Coffe Beans Blend 1</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae eos quo laborum doloremque soluta ipsa totam, necessitatibus maiores quos, aliquam alias perferendis, aspernatur quis veniam.</p>
+                <div class="product-stars">
+                    <i data-feather="star" class="star-full"></i>
+                    <i data-feather="star" class="star-full"></i>
+                    <i data-feather="star" class="star-full"></i>
+                    <i data-feather="star" class="star-full"></i>
+                    <i data-feather="star" class="star-full"></i>
+                </div>
+                <div class="product-price">IDR 40K <span>IDR 65K</span></div>
+                <a href="#"><i data-feather="shopping-cart"></i> <span>Add to Cart</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Box Item Detail end -->
+    
+    <!-- Feather Icons -->
+    <script>
+        feather.replace();
+      </script>
+
+    <!-- My Javascript -->
+    <script src="js/script.js"> </script>
+</body>
+</html>
