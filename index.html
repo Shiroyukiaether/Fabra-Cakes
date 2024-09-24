@@ -54,19 +54,21 @@
 
         <!-- Shopping Cart start -->
         <div class="shopping-cart">
+            <template x-for="(item, index) in $store.cart.items" x-keys="index">
             <div class="cart-item">
-              <img src="img/products/1.jpeg" alt="Product 1">
+              <img :src="`img/products/${item.img}`" :alt="item.name">
               <div class="item-detail">
-                <h3>Chocolate Chip Cookie</h3>
+                <h3 x-text="item.name"></h3>
                 <div class="item-price">
-                  <span>Rp 15.000</span> &times;
-                  <button id="remove">&minus;</button>
-                  <span>1</span>
-                  <button id="add">&plus;</button> &equals;
-                  <span>Rp 15.000</span>
+                  <span x-text="rupiah(item.price)"></span> &times;
+                  <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+                  <span x-text="item.quantity"></span>
+                  <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+                  <span x-text="rupiah(item.total)"></span>
                 </div>
               </div>
             </div>
+          </template>
         </div>
         <!-- Shopping Cart end -->
 
