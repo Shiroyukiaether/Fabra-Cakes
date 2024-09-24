@@ -26,7 +26,7 @@
 <body>
 
      <!-- Navbar start -->
-     <nav class="navbar">
+     <nav class="navbar" x-data>
         <a href="#" class="navbar-logo">Fabra<span>cakes</span></a>
 
         <div class="navbar-nav">
@@ -38,7 +38,10 @@
 
         <div class="navbar-extra">
             <a href="#" id="search-button"><i data-feather="search"></i></a>
-            <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
+            <a href="#" id="shopping-cart-button">
+              <i data-feather="shopping-cart"></i>
+              <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
+            </a>
             <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
         </div>
 
@@ -46,34 +49,23 @@
         <div class="search-form">
             <input type="search" id="search-box" placeholder="Search here...">
             <label for="search-box"><i data-feather="search"></i></label>
-        </div>
+        </div>  
         <!-- Search Form end -->
 
         <!-- Shopping Cart start -->
         <div class="shopping-cart">
             <div class="cart-item">
-              <img src="img/products/manki-kim-mv7kxYh5Rko-unsplash (1) pt 9.jpg" alt="Product 1">
+              <img src="img/products/1.jpeg" alt="Product 1">
               <div class="item-detail">
-                <h3>Coffe Beans Blend 2</h3>
-                <div class="item-price">IDR 70K</div>
+                <h3>Chocolate Chip Cookie</h3>
+                <div class="item-price">
+                  <span>Rp 15.000</span> &times;
+                  <button id="remove">&minus;</button>
+                  <span>1</span>
+                  <button id="add">&plus;</button> &equals;
+                  <span>Rp 15.000</span>
+                </div>
               </div>
-              <i data-feather="trash-2" class="remove-item"></i>
-            </div>
-            <div class="cart-item">
-              <img src="img/products/manki-kim-mv7kxYh5Rko-unsplash (1) pt 9.jpg" alt="Product 1">
-              <div class="item-detail">
-                <h3>Coffe Beans Blend 1</h3>
-                <div class="item-price">IDR 40K</div>
-              </div>
-              <i data-feather="trash-2" class="remove-item"></i>
-            </div>
-            <div class="cart-item">
-              <img src="img/products/manki-kim-mv7kxYh5Rko-unsplash (1) pt 9.jpg" alt="Product 1">
-              <div class="item-detail">
-                <h3>Coffe Beans Blend 3</h3>
-                <div class="item-price">IDR 50K</div>
-              </div>
-              <i data-feather="trash-2" class="remove-item"></i>
             </div>
         </div>
         <!-- Shopping Cart end -->
@@ -116,7 +108,7 @@
           <template x-for="(item, index) in items" x-key="index"> 
             <div class="menu-card">
                 <div class="menu-icons">
-                    <a href="#">
+                    <a href="#" @click.prevent="$store.cart.add(item)">
                       <svg
                       width="24"
                       height="24"
@@ -130,9 +122,16 @@
                     </svg>
                     </a>
                     <a href="#" class="item-detail-button">
-                      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <use href="img/products/feather-sprite.svg#eye" />
+                      <svg
+                      width="24"
+                      height="24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      >
+                        <use href="img/feather-sprite.svg#eye" />
                       </svg>
                     </a>
                 </div>
@@ -142,14 +141,65 @@
               <div class="menu-content">
                   <h3 x-text="item.name"></h3>
                   <div class="menu-stars">
-                      <i data-feather="star" class="star-full"></i>
-                      <i data-feather="star" class="star-full"></i>
-                      <i data-feather="star" class="star-full"></i>
-                      <i data-feather="star" class="star-full"></i>
-                      <i data-feather="star" class="star-full"></i>
+                    <svg
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    >
+                      <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                    <svg
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    >
+                      <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                    <svg
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    >
+                      <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                    <svg
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    >
+                      <use href="img/feather-sprite.svg#star" />
+                    </svg>
+                    <svg
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    >
+                      <use href="img/feather-sprite.svg#star" />
+                    </svg>
                   </div>
-          <div class="-price"><span x-text="item.price"></span></div>
-              </div>
+          <div class="menu-price"><span x-text="rupiah(item.price)"></span></div>
+            </div>
+            </div>
           </template>
         </div>
     </section>
@@ -208,17 +258,17 @@
             <a href="#" class="close-icon" ><i data-feather="x"></i></a>
             <div class="modal-content">
                 <img src="img/products/manki-kim-mv7kxYh5Rko-unsplash (1) pt 9.jpg" alt="Coffe Beans Blend 1">
-                <div class="product-content">
+                <div class="menu-content">
                     <h3>Coffe Beans Blend 1</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae eos quo laborum doloremque soluta ipsa totam, necessitatibus maiores quos, aliquam alias perferendis, aspernatur quis veniam.</p>
-                <div class="product-stars">
+                <div class="menu-stars">
                     <i data-feather="star" class="star-full"></i>
                     <i data-feather="star" class="star-full"></i>
                     <i data-feather="star" class="star-full"></i>
                     <i data-feather="star" class="star-full"></i>
                     <i data-feather="star" class="star-full"></i>
                 </div>
-                <div class="product-price">IDR 40K <span>IDR 65K</span></div>
+                <div class="menu-price">IDR 40K <span>IDR 65K</span></div>
                 <a href="#"><i data-feather="shopping-cart"></i> <span>Add to Cart</span></a>
                 </div>
             </div>
