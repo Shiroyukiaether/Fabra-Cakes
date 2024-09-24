@@ -128,11 +128,11 @@ body {
     display: inline-block;
     padding: 1px 5px;
     background-color: red;
-    border-radius: 6px;
+    border-radius: 25px;
     font-size: 0.8rem;
     position: absolute;
     top: 0;
-    right: -10px;
+    right: -7px;
 }
 
 .shopping-cart {
@@ -174,8 +174,8 @@ body {
     font-size: 1.2rem;
 }
 
-.shopping-cart.cart-item #add,
-.shopping-cart.cart-item #remove {
+.shopping-cart .cart-item #add,
+.shopping-cart .cart-item #remove {
     display: inline-block;
     padding: 2px 5px;
     cursor: pointer;
@@ -184,6 +184,61 @@ body {
     color: white;
     font-weight: bold;
     font-size: 1.1rem;
+}
+
+.shopping-cart h4 {
+    font-size: 1.6rem;
+    margin-top: -1rem;
+    text-align: center;
+}
+
+/* Checkout Form */
+.form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 1px dashed black;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.form-container h5 {
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.form-container form {
+    width: 100%;
+    text-align: center;
+}
+
+.form-container label {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.form-container span {
+    text-align: right;
+}
+
+.form-container input {
+    background-color: #ddd;
+    padding: 5px;
+    font-size: 1rem;
+    width: 70%;
+}
+
+.form-container .checkout-button {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+    font-size: 1.4rem;
+    border-radius: 25px;
+    margin: 1rem auto;
+    cursor: pointer;   
 }
 
 /* Hero Section */

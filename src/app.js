@@ -6,7 +6,7 @@ document.addEventListener('alpine:init', () => {
             { id: 3, name: 'Strawberry Tart', img: '3.jpeg', price: 30000 },
             { id: 4, name: 'Croissant', img: '4.jpeg', price: 30000 },
             { id: 5, name: 'Tiramisu Cake', img: '5.jpeg', price: 23000 },
-            { id: 6, name: 'Cheese Cake', img: '6.jpeg', price: 280000 },
+            { id: 6, name: 'Cheese Cake', img: '6.jpeg', price: 28000 },
         ],
     }));
 
@@ -34,7 +34,7 @@ document.addEventListener('alpine:init', () => {
                         item.quantity++;
                         item.total = item.price * item.quantity;
                         this.quantity++;
-                        this.total += Item.price;
+                        this.total += item.price;
                         return item;  
                     }
                 });
