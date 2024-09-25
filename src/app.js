@@ -87,7 +87,7 @@ form.addEventListener('keyup', function() {
         }
     }   
     checkoutButton.disabled = false;
-    checkoutButton.classlist.remove('disabled');
+    checkoutButton.classList.remove('disabled');
 });
 
 // Kirim data ketika tombol checkout diklik
@@ -103,7 +103,7 @@ checkoutButton.addEventListener('click', function (e) {
 // Format Pesan Whatsapp
 const formatMessage = (obj) => {
     return `Data Customer
-        Nama: ${onj.nama}
+        Nama: ${obj.nama}
         Email: ${obj.email}
         No. HP: ${obj.phone}
 Data Pesanan
