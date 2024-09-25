@@ -103,13 +103,13 @@ checkoutButton.addEventListener('click', function (e) {
 // Format Pesan Whatsapp
 const formatMessage = (obj) => {
     return `Data Customer
-        Nama: ${obj.nama}
-        Email: ${obj.email}
-        No. HP: ${obj.phone}
+Nama: ${obj.name}
+Email: ${obj.email}
+No. HP: ${obj.phone}
 Data Pesanan
-   ${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`)}
-    TOTAL: ${rupiah(obj.total)}
-    Terima Kasih.`;
+${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`)}
+TOTAL: ${rupiah(obj.total)}
+Terima Kasih.`;
 }
 
 // konversi ke Rupiah
