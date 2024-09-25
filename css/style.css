@@ -241,6 +241,11 @@ body {
     cursor: pointer;   
 }
 
+.form-container .checkout-button.disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -338,6 +343,10 @@ body {
     margin-top: 4rem;
 }
 
+.menu p {
+    text-align: center;
+}
+
 .menu .menu-card {
     text-align: center;
     border: 1px solid #666;
@@ -406,6 +415,10 @@ body {
     flex: 1 1 45rem;
     width: 100%;
     object-fit: cover;
+}
+
+.contact p {
+    text-align: center;
 }
 
 .contact .row form {

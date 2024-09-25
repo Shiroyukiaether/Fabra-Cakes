@@ -20,7 +20,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- App -->
-    <script src="src/app.js"></script>
+    <script src="src/app.js" async></script>
 </head>
 
 <body>
@@ -75,6 +75,8 @@
 
           <div class="form-container" x-show="$store.cart.items.length">
             <form action="" id="checkoutForm">
+              <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)">
+              <input type="hidden" name="total" x-model="$store.cart.items">
               <h5>Customer Detail</h5>
 
               <label for="name">
@@ -92,7 +94,7 @@
                 <input type="number" name="phone" id="phone" autocomplete="off">
               </label>  
               
-              <button class="checkout-button" type="submit" id="checkout-button" value="checkout">Checkout</button>
+              <button class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
             </form>
           </div>
         </div> 
@@ -218,21 +220,11 @@
                     <svg
                     width="24"
                     height="24"
-                    fill="currentColor"
+                    fill="none"
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-=======
-                      <svg
-                      width="24"
-                      height="24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
->>>>>>> 65030ac296d6801e287c1ad247b29227bf3987d4
                     >
                       <use href="img/feather-sprite.svg#star" />
                     </svg>
